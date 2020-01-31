@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
     namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 1, default: true) do
-      resources :users, only: [:show, :create, :update]
+      resources :users, only: [:show, :create, :update, :destroy] # Esse é um formato de um CRUD 'show' = GET, 'create' = POST, 'update' = PUT, 'destroy' = DELETE
     end
   end
 end
