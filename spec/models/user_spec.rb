@@ -4,6 +4,9 @@ RSpec.describe User, type: :model do
 
   let(:user) { build(:user) } # sera criado somente se alguem chamar o 'user'. Caso queira criar a força, deve ser adicionado '!' na frente do 'let'
   #UTILIZANDO A GEM 'shoulda-matchers'
+
+  it { is_expected.to have_many(:tasks).dependent(:destroy) }
+
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive } # verifica se a emails iguais
   it { is_expected.to validate_confirmation_of(:password) }
