@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 1, default: true) do
       resources :users, only: [:show, :create, :update, :destroy] # Esse é um formato de um CRUD 'show' = GET, 'create' = POST, 'update' = PUT, 'destroy' = DELETE
       resources :sessions, only: [:create, :destroy]
-      resources :tasks, only: [:index, :show, :create, :update] # 'index' siginifica um array contendo varias tarefas
+      resources :tasks, only: [:index, :show, :create, :update, :destroy] # 'index' siginifica um array contendo varias tarefas
     end
   end
 end
