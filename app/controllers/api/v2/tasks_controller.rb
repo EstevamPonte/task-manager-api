@@ -1,5 +1,5 @@
 class Api::V2::TasksController < Api::V2::BaseController
-    before_action :authenticate_with_token!
+    before_action :authenticate_user! #Metodo do proprio devise token auth
 
     def index
         tasks = current_user.tasks.ransack(params[:q]).result
